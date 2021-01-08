@@ -14,6 +14,7 @@ exports.redirectToLongUrl = catchAsync(async (req, res, next) => {
 
 exports.createShortUrl = catchAsync(async (req, res, next) => {
   const { longUrl } = req.body;
+  console.log(req.body);
   if (!isURL(new URL(longUrl))) {
     res.status(400);
     return next(new Error("Invalid URL"));
