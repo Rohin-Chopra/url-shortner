@@ -1,10 +1,16 @@
 const express = require("express");
-const urlRouter = require("./routes/urlRoutes");
+const cors = require("cors");
+const urlRouter = require("./routes/url");
 const errorHandler = require("./middlewares/error");
 
 const app = express();
 
-app.use(express.json());
+app.use(
+  express.json({
+    type: ["application/json", "text/plain"],
+  })
+);
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.status(200).json({
