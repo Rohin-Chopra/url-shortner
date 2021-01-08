@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+main {
+  background-color: #ffe8e1;
+  min-height: 100%;
+  display: flex;
+}
+
+.has-background-primary {
+  background-color: #66101f !important;
+  color: #ffffff;
+}
+.button.has-background-primary:hover {
+  background-color: #931a25 !important;
+  color: #ffffff;
+}
+.button.is-primary.is-outlined {
+  border-color: #931a25 !important;
+  color: #931a25 !important;
+}
+.button.is-primary.is-outlined.is-focused,
+.button.is-primary.is-outlined.is-hovered,
+.button.is-primary.is-outlined:focus,
+.button.is-primary.is-outlined:hover {
+  background-color: #931a25 !important;
+  color: #ffffff !important;
+}
+.button .fa-clipboard {
+  margin-left: 5px;
+}
+
+.navbar-item {
+  color: #ffffff;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+#post-loaded {
+  display: none;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.logo {
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+}
+
+.navbar-item .fa-github {
+  font-size: 2rem;
+}

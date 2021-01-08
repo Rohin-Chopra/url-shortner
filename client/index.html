@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>URL shortener!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar has-background-primary">
+      <div class="navbar-brand">
+        <div class="navbar-item" href="https://bulma.io">
+          <h1 class="logo">ShortenMyURL</h1>
+        </div>
+        <div class="navbar-item">
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div
+        class="container is-flex is-flex-direction-column is-justify-content-center is-align-items-center"
+      >
+        <div class="box">
+          <div id="pre-loaded">
+            <h1 class="title">Shorten your URLs</h1>
+            <h5 class="subtitle">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro,
+              quam.
+            </h5>
+            <input
+              id="long-url"
+              class="input"
+              type="text"
+              placeholder="Text input"
+            />
+            <button
+              id="generate-btn"
+              class="button my-2 has-background-primary w-100"
+            >
+              Generate
+            </button>
+          </div>
+          <div id="post-loaded">
+            <h1 class="title">Your Url has been shortened</h1>
+            <input
+              id="short-url"
+              class="input"
+              type="text"
+              value="{data.shortUrl}"
+              readonly
+            />
+            <div class="is-flex is-justify-content-center">
+              <div class="tooltip">
+                <button class="button has-background-primary m-2" id="copy-btn">
+                  <span class="tooltiptext" id="myTooltip"
+                    >Copy to clipboard</span
+                  >Copy <i class="fa fa-clipboard" aria-hidden="true"></i>
+                </button>
+              </div>
+              <button class="button is-primary is-outlined my-2" id="reset-btn">
+                Shorten Another one
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/09e0f9fcdf.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
