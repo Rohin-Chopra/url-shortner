@@ -7,7 +7,7 @@ const tooltip = document.getElementById("myTooltip");
 
 submitBtn.onclick = () => {
   submitBtn.classList.add("is-loading");
-  fetch("http://localhost:5000", {
+  fetch("https://tranquil-wave-40191.herokuapp.com", {
     headers: {
       "Content-Type": "application/json",
     },
