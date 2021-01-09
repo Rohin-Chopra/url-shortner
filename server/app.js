@@ -1,10 +1,25 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
+const morgan = require("morgan");
+const rfs = require("rotating-file-stream");
 const urlRouter = require("./routes/url");
 const errorHandler = require("./middlewares/error");
 
 const app = express();
 
+app.use(
+  morgan("combined", {
+    stream: rfs.createStream("access.log", {
+      interval: "1d",
+      path: path.join(__dirname, "logs"),
+    }),
+  })
+);
+
+if (process.env.NODE_ENV !== "production") {
+  app.use(morgan("dev"));
+}
 app.use(
   express.json({
     type: ["application/json", "text/plain"],

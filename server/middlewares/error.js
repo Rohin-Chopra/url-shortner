@@ -8,6 +8,7 @@ module.exports = (err, req, res, next) => {
       message: err.message,
     });
   }
+  console.error(err);
   res.json({
     message: err.message,
     stack: err.stack,

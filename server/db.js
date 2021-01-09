@@ -7,4 +7,5 @@ module.exports = new Sequelize(process.env.DATABASE_URL, {
     ssl: true,
   },
   ssl: { rejectUnauthorized: false },
+  logging: false,
 });

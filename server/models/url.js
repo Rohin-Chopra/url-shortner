@@ -6,7 +6,7 @@ const Url = db.define(
   {
     longUrl: {
       type: Sequelize.STRING,
-      field: "short_url",
+      field: "long_url",
       allowNull: false,
     },
     urlId: {

@@ -6,7 +6,7 @@ const db = require("./db");
 const Url = require("./models/url");
 
 db.authenticate().then(() => console.log("database connected"));
-db.sync(/* { force: true } */);
+db.sync();
 
 const PORT = process.env.PORT || 3000;
 
