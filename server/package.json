@@ -15,7 +15,8 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "isurl": "^4.0.1",
-    "mysql2": "^2.2.5",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
     "shortid": "^2.2.16"
   }
