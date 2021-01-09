@@ -5,7 +5,7 @@ const Url = require("./../models/url");
 
 exports.redirectToLongUrl = catchAsync(async (req, res, next) => {
   const urlId = req.params.id;
-  const url = (await Url.findOne({ where: { urlId } }))?.dataValues;
+  const url = (await Url.findOne({ where: { urlId } })).dataValues;
   if (!url) {
     return next(new Error("No short URL found for this long URL"));
   }
