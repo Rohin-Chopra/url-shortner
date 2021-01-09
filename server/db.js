@@ -6,4 +6,5 @@ module.exports = new Sequelize(process.env.DATABASE_URL, {
   dialectOptions: {
     ssl: true,
   },
+  ssl: { rejectUnauthorized: false },
 });
