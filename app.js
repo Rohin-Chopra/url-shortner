@@ -33,7 +33,7 @@ app.get("/", function (req, res) {
   res.sendFile(path.join(path.join(__dirname, "/public/index.html")));
 });
 
-app.use("/api", urlRouter);
+app.use("/", urlRouter);
 
 app.use(errorHandler);
 

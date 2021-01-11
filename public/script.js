@@ -7,7 +7,7 @@ const tooltip = document.getElementById("myTooltip");
 
 submitBtn.onclick = () => {
   submitBtn.classList.add("is-loading");
-  fetch("/api", {
+  fetch("/", {
     headers: {
       "Content-Type": "application/json",
     },
