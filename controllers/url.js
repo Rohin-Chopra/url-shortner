@@ -52,3 +52,4 @@ exports.createShortUrl = catchAsync(async (req, res, next) => {
     }`,
   });
 });
+console.log(1);
