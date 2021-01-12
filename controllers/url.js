@@ -47,7 +47,7 @@ exports.createShortUrl = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     message: "success",
-    shortUrl: `${req.protocol}://${req.get("host")}${req.originalUrl}${
+    shortUrl: `${req.get("host")}${req.originalUrl}${
       url.urlId
     }`,
   });
