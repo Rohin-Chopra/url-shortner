@@ -36,7 +36,7 @@ exports.createShortUrl = catchAsync(async (req, res, next) => {
     const _ = new URL(longUrl);
   } catch (error) {
     res.status(400);
-    return next(new Error("Invalid URL"));
+    return next(new Error("Invalid URL, Please enter another one."));
   }
 
   const url = (
