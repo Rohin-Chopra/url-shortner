@@ -4,26 +4,31 @@ const submitBtn = document.getElementById("generate-btn");
 const resetBtn = document.getElementById("reset-btn");
 const copyBtn = document.getElementById("copy-btn");
 const tooltip = document.getElementById("myTooltip");
+const shortUrl = document.getElementById("short-url");
+const longUrl = document.getElementById("long-url");
+const errorText = document.getElementById("error");
 
-submitBtn.onclick = () => {
+submitBtn.onclick = async () => {
   submitBtn.classList.add("is-loading");
-  fetch("/", {
+  const res = await fetch("/", {
     headers: {
       "Content-Type": "application/json",
     },
     method: "POST",
     body: JSON.stringify({
-      longUrl: document.getElementById("long-url").value,
+      longUrl: longUrl.value,
     }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      submitBtn.classList.remove("is-loading");
-      preLoadedDiv.style.display = "none";
-      postLoadedDiv.style.display = "unset";
-      document.getElementById("short-url").value = data.shortUrl;
-    })
-    .catch((err) => console.error(err));
+  });
+  const data = await res.json();
+  submitBtn.classList.remove("is-loading");
+  if (res.status === 400) {
+    longUrl.classList.add("is-danger");
+    errorText.textContent = data.message;
+    return;
+  }
+  preLoadedDiv.style.display = "none";
+  postLoadedDiv.style.display = "unset";
+  shortUrl.value = data.shortUrl;
 };
 
 resetBtn.onclick = () => {

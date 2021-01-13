@@ -7,6 +7,7 @@ exports.redirectToLongUrl = catchAsync(async (req, res, next) => {
   const urlId = req.params.id;
   const url = (await Url.findOne({ where: { urlId } })).dataValues;
   if (!url) {
+    res.status(404);
     return next(new Error("No short URL found for this long URL"));
   }
   res.redirect(url.longUrl);
@@ -17,6 +18,7 @@ exports.getUrl = catchAsync(async (req, res, next) => {
   const url = (await Url.findOne({ where: { urlId: req.params.id } }))
     .dataValues;
   if (!url) {
+    res.status(404);
     return next(new Error("No short URL found for this long URL"));
   }
   res.status(200).json({
@@ -30,10 +32,13 @@ exports.getUrl = catchAsync(async (req, res, next) => {
 exports.createShortUrl = catchAsync(async (req, res, next) => {
   const { longUrl } = req.body;
   console.log(req.body);
-  if (!isURL(new URL(longUrl))) {
+  try {
+    const _ = new URL(longUrl);
+  } catch (error) {
     res.status(400);
     return next(new Error("Invalid URL"));
   }
+
   const url = (
     await Url.findOrCreate({
       where: {
@@ -47,9 +52,6 @@ exports.createShortUrl = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     message: "success",
-    shortUrl: `${req.get("host")}${req.originalUrl}${
-      url.urlId
-    }`,
+    shortUrl: `${req.get("host")}${req.originalUrl}${url.urlId}`,
   });
 });
-console.log(1);
